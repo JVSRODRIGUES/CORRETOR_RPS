@@ -1,2 +1,2 @@
 # CORRETOR_RPS
-Manipula arquivos XML para sequenciais do EXCEL. 
+Manipula arquivos XML, inserindo sequenciais do EXCEL.

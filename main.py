@@ -1,17 +1,23 @@
 from bs4 import BeautifulSoup as bs
 import pandas as pd
+import os
 
-condição = True
+cont = 0
 
-while condição :
-    condição = False
-    fim = ''
-    print('Nome dos arquivos tem que ser com a extensão!!')
-    #endereço_xml = str(input('Nome do Arquivo XML: '))
-    #endereço_excel = str(input('Nome do Arquivo EXCEL: '))
+# Mapeando local do sistema
+loc1 = os.getcwd()
+loc = os.getcwd()
+local = loc + '\LOTES'
+os.chdir(local)
+lote = os.listdir()
+local = loc1
+os.chdir(local)
+num_lote = len(lote)
 
-    endereço_xml = 'LOTE_08_20231103_000050867.xml'
-    endereço_xml_s = 'LOTES_PRONTOS/LOTE_08_20231103_000050867.xml'
+while cont <= (num_lote - 1):
+
+    endereço_xml = 'LOTES/' + lote[cont]
+    endereço_xml_s = 'LOTES_PRONTOS/' + lote[cont]
     endereço_excel = 'BASE.xlsx'
 
     # Pega os arquivos XML
@@ -29,25 +35,21 @@ while condição :
     excel = lista_ex.head(num // 2)
     excel = excel['Sequencia'].to_list()
 
-    print(len(lista_xml), len(lista_ex))
-
     # Laço para fazer a alteração do RPS
     y = -2
     for x in range(num//2):
         i = 0
         i = i + 1
         y = y + 2
-        print('-'*20)
-        print(y, x)
-        print(int(lista_xml[y].text),'=' ,int(excel[x]))
+        #print('-'*20)
+        #print(y, x)
+        #print(int(lista_xml[y].text),'=' ,int(excel[x]))
         lista_xml[y].string.replace_with(str(excel[x]))
 
     # Salva arquivo XML editado
     with open(endereço_xml_s, 'w') as f:
         f.write(soup.prettify())
 
-    # Apagar coluna excel
-    lista_ex.drop(num // 2, axis = 'index')
 
     # Apagar RPS já utilizados na tabela
     for x in range(num // 2):
@@ -60,12 +62,12 @@ while condição :
     print('')
     print('Total de RPS usados:',num//2)
     print('Sendo o ultimo: ',int(lista_xml[y].text))
-    print('')
-    print('-'*8,'FIM','-'*7)
+    print(lote[cont],' OK')
     print('')
     print('{} Linas apagadas'.format(num // 2))
+    cont= cont + 1
 
-    #fim = input('Deseja alterar mais alguns [s/n]? ').upper().strip()
-
-    #if fim == 'S':
-    #    condição = True   
+print('')
+print('Sobraram {} RPS'.format(len(lista_ex)))    
+print('')
+print('-'*8,'FIM','-'*7)

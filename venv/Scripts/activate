@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\joaor\OneDrive\Documentos\Temporario\Teste_xml\venv"
+VIRTUAL_ENV="C:\Users\joaor\OneDrive\Documentos\GitHub\CORRETOR_RPS\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

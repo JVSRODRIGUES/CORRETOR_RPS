@@ -1,0 +1,11 @@
+﻿- Procedimento para alterar RPS:
+
+- Coloque os arquivos de lotes a ser alterados dentro da pasta LOTES.
+
+- A sequência de RPS que será aplicada, deve ser mantido na sequência a ser aplicada dentro do arquivo BASE.xlsx.
+
+- Antes de executar certifique que a pasta LOTES_PRONTOS não contenha arquivos dentro.
+
+- Após ser preparados os arquivos execute o main.exe.
+
+- Após finalizar o processo, o resultado será encontrado dentro da pasta LOTES_PRONTOS.

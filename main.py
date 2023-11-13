@@ -5,7 +5,7 @@ import os
 cont = 0
 
 # Mapeando local do sistema
-loc1 = os.getcwd()
+loc1 = os.getcwd() 
 loc = os.getcwd()
 local = loc + '\LOTES'
 os.chdir(local)

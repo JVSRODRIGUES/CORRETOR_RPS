@@ -48,7 +48,7 @@ while cont <= (num_lote - 1):
 
     # Salva arquivo XML editado
     with open(endereço_xml_s, 'w') as f:
-        f.write(soup.prettify())
+        f.write(soup.decode())
 
 
     # Apagar RPS já utilizados na tabela

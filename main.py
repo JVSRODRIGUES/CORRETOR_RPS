@@ -10,7 +10,7 @@ loc = os.getcwd()
 local = loc + '\LOTES'
 os.chdir(local)
 lote = os.listdir()
-local = loc1
+local = loc1 
 os.chdir(local)
 num_lote = len(lote)
 
